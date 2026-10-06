@@ -13,6 +13,7 @@
     <a href="https://github.com/meooow25">meooow</a> &emsp;
     <a href="https://github.com/tfg50">tfg</a> &emsp;
     <a href="https://github.com/sgtlaugh">sgtlaugh</a> &emsp;
+    <a href="https://github.com/abertell">abertell</a> &emsp;
   </strong>
 </div>
 
@@ -131,7 +132,7 @@
   - [Longest Common Substring](https://github.com/cheran-senthil/PyRival/blob/master/pyrival/strings/LCSubstr.py)
   - [Longest Palindromic Substring](https://github.com/cheran-senthil/PyRival/blob/master/pyrival/strings/LPSubstr.py)
   - [Manacher's Algorithm](https://github.com/cheran-senthil/PyRival/blob/master/pyrival/strings/suffix_array.py)
-  - [Lydon Factorization](https://github.com/cheran-senthil/PyRival/blob/master/pyrival/strings/min_rotation.py)
+  - [Lyndon Factorization](https://github.com/cheran-senthil/PyRival/blob/master/pyrival/strings/min_rotation.py)
   - [Z Algorithm](https://github.com/cheran-senthil/PyRival/blob/master/pyrival/strings/z_algorithm.py)
 </details>
 
@@ -149,7 +150,7 @@
   - [Bit Hacks](https://github.com/cheran-senthil/PyRival/blob/master/pyrival/misc/bit_hacks.py)
   - [32-bit Modular Arithmetic](https://github.com/cheran-senthil/PyRival/blob/master/pyrival/misc/mod.py)
   - [Memoize Decorators](https://github.com/cheran-senthil/PyRival/blob/master/pyrival/misc/memoize.py)
-  - [C++ syle cout](https://github.com/cheran-senthil/PyRival/blob/master/pyrival/misc/ostream.py)
+  - [C++ style cout](https://github.com/cheran-senthil/PyRival/blob/master/pyrival/misc/ostream.py)
   - [Interactive Runner](https://github.com/cheran-senthil/PyRival/blob/master/pyrival/tools/interactive_runner.py)
   - [Stress Tester](https://github.com/cheran-senthil/PyRival/blob/master/pyrival/tools/stress_tester.py)
   - [Alpha–Beta Pruning](https://github.com/cheran-senthil/PyRival/blob/master/pyrival/misc/alphabeta.py)

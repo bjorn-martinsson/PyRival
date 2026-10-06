@@ -1,55 +1,32 @@
-def scc(graph):
-    """
-    Finds what strongly connected components each node
-    is a part of in a directed graph,
-    it also finds a weak topological ordering of the nodes
-    """
-    n = len(graph)
-    comp = [-1] * n
-    top_order = []
+"""
+Given a directed graph, find_SCC returns a list of lists containing 
+the strongly connected components in topological order.
 
-    Q = []
-    stack = []
-    new_node = None
-    for root in range(n):
-        if comp[root] >= 0:
-            continue
+Note that this implementation can be also be used to check if a directed graph is a
+DAG, and in that case it can be used to find the topological ordering of the nodes.
+"""
 
-        # Do a dfs while keeping track of depth
-        Q.append(root)
-        root_depth = len(top_order)
-        while Q:
-            node = Q.pop()
-            if node >= 0:
-                if comp[node] >= 0:
-                    continue
-                # First time
-
-                # Index the node
-                comp[node] = len(top_order) + len(stack)
-                stack.append(node)
-
-                # Do a dfs
-                Q.append(~node)
-                Q += graph[node]
-            else:
-                # Second time
-                node = ~node
-
-                # calc low link
-                low = index = comp[node]
-                for nei in graph[node]:
-                    if root_depth <= comp[nei]:
-                        low = min(low, comp[nei])
-
-                # low link same as index, so create SCC
-                if low == index:
-                    while new_node != node:
-                        new_node = stack.pop()
-                        comp[new_node] = index
-                        top_order.append(new_node)
-                else:
-                    comp[node] = low
-
-    top_order.reverse()
-    return comp, top_order
+def find_SCC(graph):
+    SCC, S, P = [], [], []
+    depth = [0] * len(graph)
+ 
+    stack = list(range(len(graph)))
+    while stack:
+        node = stack.pop()
+        if node < 0:
+            d = depth[~node] - 1
+            if P[-1] > d:
+                SCC.append(S[d:])
+                del S[d:], P[-1]
+                for node in SCC[-1]:
+                    depth[node] = -1
+        elif depth[node] > 0:
+            while P[-1] > depth[node]:
+                P.pop()
+        elif depth[node] == 0:
+            S.append(node)
+            P.append(len(S))
+            depth[node] = len(S)
+            stack.append(~node)
+            stack += graph[node]
+    return SCC[::-1]

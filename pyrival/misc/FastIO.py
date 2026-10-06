@@ -12,6 +12,7 @@ class FastIO(IOBase):
     newlines = 0
 
     def __init__(self, file):
+        self._file = file
         self._fd = file.fileno()
         self.buffer = BytesIO()
         self.writable = "x" in file.mode or "r" not in file.mode
@@ -52,4 +53,5 @@ class IOWrapper(IOBase):
         self.readline = lambda: self.buffer.readline().decode("ascii")
 
 
+sys.stdin, sys.stdout = IOWrapper(sys.stdin), IOWrapper(sys.stdout)
 input = lambda: sys.stdin.readline().rstrip("\r\n")

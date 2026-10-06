@@ -37,7 +37,7 @@ _heapops = [
     "heappushpop",
     "heapreplace",
     "_siftup",
-    "_siftdown"
+    "_siftdown",
     "_heapify_max",
     "_heappush_max",
     "_heappop_max",
@@ -52,7 +52,7 @@ for module in ["heapq", "_heapq"]:
         m = import_module(module)
         for f in _heapops:
             try:
-                globals().update({f: getattr(m, f)})
+                globals()[f] = getattr(m, f)
             except:
                 pass
     except:
@@ -100,7 +100,7 @@ class Heap(object):
         return item in iter(self)
 
     def __repr__(self):
-        return "Heap({content})".format(content=heap)
+        return "Heap({content})".format(content=self.heap)
 
 
 class OrderHeap(Heap):
